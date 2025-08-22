@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    background-color: #444444;
+    color: #e6e6e6;
+    font-family: 'Segoe UI', sans-serif;
+}
+a {
+    color: #aedbff;
+}
+
+a:hover {
+    color: #ddefff;
+}
+
+header {
+    background-color: #363636;
+    padding: 1em;
+}
+
+figure {
+    font-style: italic;
+}
+
+ul {
+    text-align: left;
+}
