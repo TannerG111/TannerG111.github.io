@@ -1,5 +1,4 @@
 body {
-    text-align: center;
     background-color: #444444;
     color: #e6e6e6;
     font-family: 'Segoe UI', sans-serif;
@@ -7,7 +6,7 @@ body {
 }
 main {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 600px;
     width: 90%;
 }
 a {
@@ -21,11 +20,23 @@ a:hover {
 header {
     background-color: #363636;
     padding: 15px;
+    text-align: center;
 }
-h1 {
+footer {
+    text-align: center;
+}
+h1, h2, h3, h4 {
     margin: 0;
-
+    text-align: center;
 }
+
+#professional-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #main-nav {
     font-size: 1.25em;
     margin-bottom: 5px;
