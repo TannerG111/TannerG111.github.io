@@ -65,3 +65,27 @@ ul {
         max-width: 370px;
     }
 }
+/* Table styles for FCC Outline */
+.curriculum-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.curriculum-table caption {
+    caption-side: top;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.curriculum-table th,
+.curriculum-table td {
+    border: 1px solid #666666;
+    padding: 10px;
+    vertical-align: top;
+    text-align: left;
+}
+.curriculum-table thead th {
+    background-color: #2e2e2e;
+}
+.curriculum-table tbody tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
