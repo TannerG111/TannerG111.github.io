@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const addCourseBtn = document.getElementById("add-course");
     const clearBtn = document.getElementById("clear-form");
     const resetBtn = document.getElementById("reset-form");
-    const output = document.getElementById("rendered-output");
+    let output = document.getElementById("rendered-output");
     const restartWrap = document.getElementById("restart-wrapper");
     const restartLink = document.getElementById("restart-link");
     const instructions = document.getElementById("form-instructions");
@@ -125,6 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
             var el = document.getElementById(requiredIds[i]);
             if (el && !el.value.trim()) { alert('Please complete: ' + requiredIds[i]); el.focus(); return; }
         }
+        // Validate fallback date format if needed
+        var ackField = document.getElementById('ackDate');
+        if (ackField && ackField.type === 'text') {
+            var v = ackField.value.trim();
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) {
+                alert('Please enter Acknowledgement Date as YYYY-MM-DD');
+                ackField.focus();
+                return;
+            }
+        }
         var rows = courses.querySelectorAll('.course-row');
         if (rows.length === 0) { alert("Please add at least one course."); return; }
         for (var r = 0; r < rows.length; r++) {
@@ -142,8 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         var courseLis = '';
-        for (var i = 0; i < rows.length; i++) {
-            var c = rows[i].querySelectorAll('input');
+        for (var j = 0; j < rows.length; j++) {
+            var c = rows[j].querySelectorAll('input');
             courseLis += '<li><b>' + c[0].value + (c[1].value ? c[1].value : '') + ' - ' + c[2].value + '</b>: ' + c[3].value + '</li>';
         }
 
@@ -153,6 +163,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 '<figcaption>' + val('pictureCaption') + '</figcaption>' +
             '</figure>'
         ) : '';
+
+        if (!output) {
+            output = document.createElement('div');
+            output.id = 'rendered-output';
+            output.style.display = 'none';
+            form.parentNode.insertBefore(output, document.getElementById('restart-wrapper'));
+        }
 
         output.innerHTML =
             '<h2>' + val('firstName') + ' ' + val('lastName') + ' | ' + val('mascotAdj') + ' ' + val('mascotAnimal') + '</h2>' +
@@ -177,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     restartLink.addEventListener("click", function (e) {
         e.preventDefault();
-        output.style.display = 'none';
+        if (output) output.style.display = 'none';
         restartWrap.style.display = 'none';
         form.style.display = 'block';
         if (instructions) instructions.style.display = 'block';
