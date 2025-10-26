@@ -143,7 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; }
-        var fullName = (val('firstName') + ' ' + val('lastName')).trim();
+        function formatMiddle(m) {
+            if (!m) return '';
+            var t = m.trim();
+            if (t.length === 1) return t + '.';
+            return t;
+        }
+        var preferred = val('preferredName');
+        var middle = formatMiddle(val('middleName'));
+        var first = val('firstName');
+        var last = val('lastName');
+        var nick = preferred ? (' "' + preferred + '"') : '';
+        var nameLine = [first, middle].filter(Boolean).join(' ') + nick + (last ? (' ' + last) : '');
+        var fullName = [first, middle, last].filter(Boolean).join(' ');
         var imgSrc = null;
         if (pictureUpload && pictureUpload.files && pictureUpload.files[0]) {
             imgSrc = URL.createObjectURL(pictureUpload.files[0]);
@@ -171,8 +183,11 @@ document.addEventListener("DOMContentLoaded", function () {
             form.parentNode.insertBefore(output, document.getElementById('restart-wrapper'));
         }
 
+        var funnyStr = val('funnyThing') ? '<li><strong>Funny/Interesting Item to Remember Me by</strong>: ' + val('funnyThing') + '</li>' : '';
+        var shareStr = val('shareThing') ? '<li><strong>I\u2019d Also Like to Share</strong>: ' + val('shareThing') + '</li>' : '';
+
         output.innerHTML =
-            '<h2>' + val('firstName') + ' ' + val('lastName') + ' | ' + val('mascotAdj') + ' ' + val('mascotAnimal') + '</h2>' +
+            '<h2>' + nameLine + ' | ' + val('mascotAdj') + ' ' + val('mascotAnimal') + '</h2>' +
             figureStr +
             '<ul>' +
                 '<li><strong>Personal Background</strong>: ' + val('bullet1') + '</li>' +
@@ -180,6 +195,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 '<li><strong>Academic Background</strong>: ' + val('bullet3') + '</li>' +
                 '<li><strong>Primary Computer Platform</strong>: ' + val('bullet4') + '</li>' +
                 '<li><strong>Courses I\'m taking and why</strong>:<ul>' + courseLis + '</ul></li>' +
+                funnyStr +
+                shareStr +
             '</ul>';
 
         form.style.display = 'none';
