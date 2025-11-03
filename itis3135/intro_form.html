@@ -6,6 +6,8 @@
     <title>Tanner Gleason's Tiny Giraffe | ITIS 3135 | Introduction Form</title>
     <link rel="stylesheet" type="text/css" href="styles/default.css"/>
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
     <header>
@@ -79,25 +81,37 @@
             <label for="shareThing">Something I would like to share (optional)</label>
             <input type="text" id="shareThing" name="shareThing" placeholder="Any other information">
 
-            <label for="link1">Link 1</label>
-            <input type="url" id="link1" name="link1" placeholder="https://www.linkedin.com/in/username" value="https://www.linkedin.com/in/tannergleason/" required>
+            <label for="link1Name">Link 1 Name</label>
+            <input type="text" id="link1Name" name="link1Name" placeholder="e.g., Charlotte.edu" value="Charlotte.edu" required>
+            <label for="link1">Link 1 URL</label>
+            <input type="url" id="link1" name="link1" placeholder="https://webpages.charlotte.edu/username" value="https://webpages.uncc.edu/tgleaso3" required>
 
-            <label for="link2">Link 2</label>
+            <label for="link2Name">Link 2 Name</label>
+            <input type="text" id="link2Name" name="link2Name" placeholder="e.g., Github" value="Github" required>
+            <label for="link2">Link 2 URL</label>
             <input type="url" id="link2" name="link2" placeholder="https://github.com/username" value="https://github.com/TannerG111" required>
 
-            <label for="link3">Link 3</label>
+            <label for="link3Name">Link 3 Name</label>
+            <input type="text" id="link3Name" name="link3Name" placeholder="e.g., Github.io" value="Github.io" required>
+            <label for="link3">Link 3 URL</label>
             <input type="url" id="link3" name="link3" placeholder="https://username.github.io" value="https://tannerg111.github.io" required>
 
-            <label for="link4">Link 4</label>
+            <label for="link4Name">Link 4 Name</label>
+            <input type="text" id="link4Name" name="link4Name" placeholder="e.g., itis3135.io" value="itis3135.io" required>
+            <label for="link4">Link 4 URL</label>
             <input type="url" id="link4" name="link4" placeholder="https://username.github.io/itis3135/" value="https://tannerg111.github.io/itis3135/" required>
 
-            <label for="link5">Link 5</label>
-            <input type="url" id="link5" name="link5" placeholder="https://webpages.charlotte.edu/username" value="https://webpages.uncc.edu/tgleaso3" required>
+            <label for="link5Name">Link 5 Name</label>
+            <input type="text" id="link5Name" name="link5Name" placeholder="e.g., FreeCodeCamp" value="FreeCodeCamp" required>
+            <label for="link5">Link 5 URL</label>
+            <input type="url" id="link5" name="link5" placeholder="https://www.freecodecamp.org/username" value="https://www.freecodecamp.org/tannerg111" required>
 
             <div class="form-controls">
                 <button type="submit">Submit</button>
                 <button type="reset" id="reset-form">Reset</button>
                 <button type="button" id="clear-form">Clear</button>
+                <button type="button" id="generate-json">Generate JSON</button>
+                <button type="button" id="generate-html">Generate HTML</button>
             </div>
         </form>
 
@@ -108,5 +122,7 @@
     </footer>
     <script src="scripts/HTMLInclude.min.js"></script>
     <script src="scripts/introduction.js"></script>
+    <script src="scripts/generate_html.js"></script>
+    <script src="scripts/generate_json.js"></script>
 </body>
 </html>

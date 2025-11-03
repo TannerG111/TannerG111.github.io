@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
             'mascotAdj','mascotAnimal','divider',
             'pictureCaption','personalStatement',
             'bullet1','bullet2','bullet3','bullet4',
-            'link1','link2','link3','link4','link5'
+            'link1Name','link1','link2Name','link2','link3Name','link3','link4Name','link4','link5Name','link5'
         ];
         for (var i = 0; i < requiredIds.length; i++) {
             var el = document.getElementById(requiredIds[i]);
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var figureStr = imgSrc ? (
             '<figure id="professional-photo">' +
-                '<img src="' + imgSrc + '" alt="' + fullName + '">' +
+                '<img src="' + imgSrc + '" alt="' + val('pictureCaption') + '">' +
                 '<figcaption>' + val('pictureCaption') + '</figcaption>' +
             '</figure>'
         ) : '';
@@ -186,8 +186,18 @@ document.addEventListener("DOMContentLoaded", function () {
         var funnyStr = val('funnyThing') ? '<li><strong>Funny/Interesting Item to Remember Me by</strong>: ' + val('funnyThing') + '</li>' : '';
         var shareStr = val('shareThing') ? '<li><strong>I\u2019d Also Like to Share</strong>: ' + val('shareThing') + '</li>' : '';
 
+        var linksLis = '';
+        for (var k = 1; k <= 5; k++) {
+            var nm = val('link' + k + 'Name');
+            var href = val('link' + k);
+            if (href && nm) {
+                linksLis += '<li><a href="' + href + '" target="_blank" rel="noopener">' + nm + '</a></li>';
+            }
+        }
+        var linksStr = linksLis ? '<li><strong>Links</strong>:<ul>' + linksLis + '</ul></li>' : '';
+
         output.innerHTML =
-            '<h2>' + nameLine + ' | ' + val('mascotAdj') + ' ' + val('mascotAnimal') + '</h2>' +
+            '<h3>' + nameLine + ' | ' + val('mascotAdj') + ' ' + val('mascotAnimal') + '</h3>' +
             figureStr +
             '<ul>' +
                 '<li><strong>Personal Background</strong>: ' + val('bullet1') + '</li>' +
@@ -197,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 '<li><strong>Courses I\'m taking and why</strong>:<ul>' + courseLis + '</ul></li>' +
                 funnyStr +
                 shareStr +
+                linksStr +
             '</ul>';
 
         form.style.display = 'none';
