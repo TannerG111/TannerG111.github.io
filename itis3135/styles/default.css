@@ -140,3 +140,16 @@ ul {
 .curriculum-table tbody tr:nth-child(even) {
     background-color: #3a3a3a;
 }
+
+#wireframe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#sitemap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
