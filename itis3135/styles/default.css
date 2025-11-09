@@ -3,153 +3,160 @@ body {
     color: #e6e6e6;
     font-family: 'Segoe UI', sans-serif;
     margin: 0 auto;
-}
-main {
+  }
+  main {
     margin: 0 auto;
     max-width: 1200px;
     width: 90%;
-}
-a {
+  }
+  a {
     color: #aedbff;
-}
-
-a:hover {
+  }
+  
+  a:hover {
     color: #ddefff;
-}
-
-header {
+  }
+  
+  header {
+    gap: 10px;
     background-color: #363636;
     padding: 15px;
     text-align: center;
-}
-footer {
+  }
+  nav {
+    display: flex;
+    gap: .28em;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  footer {
     text-align: center;
-}
-h1, h2, h3, h4 {
+  }
+  h1, h2, h3, h4 {
     margin: 0;
     text-align: center;
-}
-
-input {
+  }
+  
+  input {
     padding: 4px;
-}
-
-button {
+  }
+  
+  button {
     padding: 4px;
-}
-
-/* Intro form: full-width stacked fields */
-#intro-form label {
+  }
+  
+  /* Intro form: full-width stacked fields */
+  #intro-form label {
     display: block;
     margin-top: 4px;
-}
-#intro-form input[type="text"],
-#intro-form input[type="url"],
-#intro-form input[type="date"],
-#intro-form input[type="file"],
-#intro-form textarea,
-#intro-form .course-row input {
+  }
+  #intro-form input[type="text"],
+  #intro-form input[type="url"],
+  #intro-form input[type="date"],
+  #intro-form input[type="file"],
+  #intro-form textarea,
+  #intro-form .course-row input {
     display: block;
     width: 100%;
     box-sizing: border-box;
     margin: 6px 0 10px 0;
-}
-#intro-form .course-row {
+  }
+  #intro-form .course-row {
     display: block;
     margin: 6px 0 12px 0;
     padding: 8px 10px;
     background-color: #3a3a3a;
     border-radius: 4px;
-}
-#intro-form .course-row label {
+  }
+  #intro-form .course-row label {
     display: block;
     margin-top: 6px;
-}
-#intro-form .course-row input {
+  }
+  #intro-form .course-row input {
     display: block;
     width: 100%;
     box-sizing: border-box;
     margin: 4px 0 8px 0;
-}
-#intro-form .course-row button {
+  }
+  #intro-form .course-row button {
     margin-top: 4px;
-}
-#intro-form .form-controls {
+  }
+  #intro-form .form-controls {
     display: flex;
     gap: 10px;
     margin-top: 12px;
-}
-
-#professional-photo {
+  }
+  
+  #professional-photo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#main-nav {
+  }
+  
+  #main-nav {
     font-size: 1.25em;
     margin-bottom: 5px;
-}
-
-figure {
+  }
+  
+  figure {
     font-style: italic;
-}
-
-ul {
+  }
+  
+  ul {
     text-align: left;
-}
-
-@media screen and ( min-width: 981px ) and ( max-width: 1400px ) {
+  }
+  
+  @media screen and ( min-width: 981px ) and ( max-width: 1400px ) {
     main {
         max-width: 900px;
     }
-}
-@media screen and ( min-width: 601px ) and ( max-width: 980px ) {
+  }
+  @media screen and ( min-width: 601px ) and ( max-width: 980px ) {
     main {
         max-width: 600px;
     }
-}
-@media screen and ( min-width: 370px ) and ( max-width: 600px ) {
+  }
+  @media screen and ( min-width: 370px ) and ( max-width: 600px ) {
     main {
         max-width: 370px;
     }
-}
-
-/* Table styles for FCC Outline */
-.curriculum-table {
+  }
+  
+  /* Table styles for FCC Outline */
+  .curriculum-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-}
-.curriculum-table caption {
+  }
+  .curriculum-table caption {
     caption-side: top;
     margin-bottom: 10px;
     font-weight: bold;
-}
-.curriculum-table th,
-.curriculum-table td {
+  }
+  .curriculum-table th,
+  .curriculum-table td {
     border: 1px solid #666666;
     padding: 10px;
     vertical-align: top;
     text-align: left;
-}
-.curriculum-table thead th {
+  }
+  .curriculum-table thead th {
     background-color: #2e2e2e;
-}
-.curriculum-table tbody tr:nth-child(even) {
+  }
+  .curriculum-table tbody tr:nth-child(even) {
     background-color: #3a3a3a;
-}
-
-#wireframe {
+  }
+  
+  #wireframe {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-#sitemap {
+  }
+  #sitemap {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
+  }
