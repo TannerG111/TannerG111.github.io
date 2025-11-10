@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Project | Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/default.css"/>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div data-include="components/header.html"></div>
+
+    <section class="site-hero" aria-label="Contact hero">
+        <div class="container">
+            <h2 class="hero-title">Contact Us</h2>
+            <p>We’re here to help with reservations and questions</p>
+        </div>
+    </section>
+
+    <main>
+        <section>
+            <div class="container grid-2">
+                <div class="card">
+                    <h3 class="section-title">Contact Information</h3>
+                    <p><strong>Phone:</strong> (704) 605-4509</p>
+                    <p><strong>Email:</strong> <a href="mailto:wdeese@yahoo.com">wdeese@yahoo.com</a></p>
+                    <p><strong>Address:</strong><br>2400 East Independence Boulevard<br>Charlotte, NC 28205</p>
+                </div>
+                <div class="card">
+                    <h3 class="section-title">Send a Message</h3>
+                    <form id="contactForm" class="inquiry-form" novalidate>
+                        <div class="field-row">
+                            <div>
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="phone">Phone</label>
+                                <input type="text" id="phone" name="phone" inputmode="tel" placeholder="(555) 123-4567" pattern="^\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button class="button-primary" type="submit">Submit</button>
+                        <p id="formStatus" aria-live="polite" style="margin-top:.5rem;"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+    <script src="./scripts/HTMLInclude.min.js"></script>
+    <script src="./scripts/contact.js"></script>
+</body>
+</html>
+

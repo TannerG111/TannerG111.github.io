@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Project | Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/default.css"/>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div data-include="components/header.html"></div>
+
+    <section class="site-hero" aria-label="Gallery hero">
+        <div class="container">
+            <h2 class="hero-title">Gallery</h2>
+            <p>Take a look around the Lodge and our rooms</p>
+        </div>
+    </section>
+
+    <main>
+        <section>
+            <div class="container"> 
+                <h3 class="section-title">Photos</h3>
+                <div class="media-grid" id="galleryGrid">
+                    <!-- Buildings -->
+                    <img src="images/building-1.jpg" alt="Building exterior, angle 1">
+
+                    <!-- Office -->
+                    <img src="images/office.jpg" alt="Front office exterior">
+
+                    <!-- Property -->
+                    <img src="images/property-wide.jpg" alt="Property wide view">
+
+                    <!-- Rooms -->
+                    <img src="images/350-bed.jpg" alt="Standard room bed">
+                    <img src="images/400-2-full.jpg" alt="Room overview">
+                    <img src="images/400-full.jpg" alt="Room full view">
+                    <img src="images/400-full-2.jpg" alt="Room alternate full view">
+                    <img src="images/400-kitchen.jpg" alt="Kitchenette">
+                    <img src="images/400-2-kitchen.jpg" alt="Kitchenette">
+                    <img src="images/400-bath.jpg" alt="Bathroom">
+                    <img src="images/400-2-bath.jpg" alt="Bathroom">
+                    <img src="images/400-2-bed.jpg" alt="Deluxe room bed">
+                    <img src="images/400-bed.jpg" alt="Deluxe room bed">
+                    <img src="images/400-bed-2.jpg" alt="Deluxe room bed alternate angle">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+        <button class="close" aria-label="Close viewer">Close</button>
+        <img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
+        <div class="controls">
+            <button aria-label="Previous image">Prev</button>
+            <span class="visually-hidden" id="lbCount"></span>
+            <button aria-label="Next image">Next</button>
+        </div>
+    </div>
+
+    <div data-include="components/footer.html"></div>
+    <script src="./scripts/HTMLInclude.min.js"></script>
+    <script src="./scripts/gallery.js"></script>
+</body>
+</html>
+

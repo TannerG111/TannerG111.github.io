@@ -1,0 +1,414 @@
+/* ========== Design Tokens ========== */
+:root {
+    /* Brand palette */
+    --clr-light: #DEDADA;          /* light sand */
+    --clr-accent: #822222;         /* deep brick */
+    --clr-ink: #494949;            /* graphite */
+
+    /* Neutrals added for contrast compliance */
+    --clr-black: #121212;
+    --clr-white: #FFFFFF;
+
+    /* Typography */
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-reading: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+
+    /* Layout */
+    --max-content-width: 800px;
+    --header-height: 64px;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --radius: 10px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== Base Resets ========== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-reading);
+    color: var(--clr-ink);
+    background: var(--clr-light);
+    line-height: 1.6;
+    /* Prevent fixed header from overlapping content */
+    padding-top: var(--header-height);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--clr-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+/* ========== Header / Top Nav ========== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--clr-ink);
+    color: var(--clr-light);
+    border-bottom: 3px solid var(--clr-accent);
+    min-height: var(--header-height);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+}
+
+.site-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+    row-gap: var(--space-3);
+}
+
+nav a {
+    color: var(--clr-light);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+nav a:hover {
+    color: var(--clr-white);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* ========== Hero ========== */
+.site-hero {
+    position: relative;
+    background: var(--clr-black);
+    color: var(--clr-light);
+    min-height: 48vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 3px solid var(--clr-accent);
+}
+
+.site-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../images/property-wide.jpg") center/cover no-repeat;
+    background-position: center bottom;
+    opacity: 0.35;
+    filter: grayscale(20%) contrast(105%);
+}
+
+.site-hero .container {
+    position: relative;
+    padding: var(--space-12) var(--space-6);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    margin: 0 0 var(--space-3) 0;
+    color: var(--clr-white);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.site-hero p {
+    margin: 0;
+    color: var(--clr-light);
+    opacity: 0.95;
+}
+
+/* ========== Section Blocks ========== */
+section {
+    padding: var(--space-12) 0;
+}
+
+.surface-alt {
+    background: var(--clr-white);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    color: var(--clr-accent);
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    margin: 0 0 var(--space-4) 0;
+    text-align: center;
+}
+
+.section-lead {
+    max-width: 70ch;
+    margin: 0 auto var(--space-8) auto;
+    text-align: center;
+}
+
+/* ========== Rooms Preview ========== */
+.rooms-preview {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    justify-items: center;        /* center children horizontally */
+    text-align: center;           /* center text and inline elements like the button */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rooms-preview-copy {
+    max-width: 520px;
+}
+
+@media (min-width: 700px) {
+    .rooms-preview {
+        grid-template-columns: 1.15fr 1fr;  /* image left, copy right */
+        align-items: center;
+        justify-items: start;               /* left align items */
+        text-align: left;                   /* left align copy/button */
+    }
+    .rooms-preview-image {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.rooms-preview-image {
+    border: 3px solid var(--clr-white);
+    outline: 3px solid var(--clr-accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+/* Optional subheadings inside room copy can inherit defaults */
+
+.button-primary {
+    display: inline-block;
+    background: var(--clr-accent);
+    color: var(--clr-white);
+    border: none;
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(130,34,34,0.35);
+    
+}
+
+.button-primary:hover {
+    filter: brightness(1.07);
+}
+
+/* ========== Contact & Form ========== */
+.contact-info {
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 0 0 var(--space-2) 0;
+}
+
+/* .contact-card removed in favor of generic .card */
+
+.inquiry-form {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.inquiry-form label {
+    font-weight: 600;
+}
+
+.inquiry-form input[type="text"],
+.inquiry-form input[type="email"],
+.inquiry-form textarea {
+    inline-size: 100%;             /* avoid width + padding/border warning */
+    box-sizing: border-box;        /* ensure padding/border are included */
+    padding: 0.6rem 0.75rem;
+    border: 2px solid #dad6d6;
+    border-radius: 8px;
+    font: inherit;
+    color: var(--clr-ink);
+    background: var(--clr-light);
+}
+
+.inquiry-form textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.inquiry-form .field-row {
+    display: grid;
+    gap: var(--space-4);
+}
+
+@media (min-width: 600px) {
+    .inquiry-form .field-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.inquiry-form button {
+    justify-self: start;
+}
+
+/* ========== Footer ========== */
+footer {
+    margin-top: var(--space-12);
+    background: var(--clr-ink);
+    color: var(--clr-light);
+    border-top: 3px solid var(--clr-accent);
+}
+
+footer .container {
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+}
+
+/* Utility spacing for the header include wrapper */
+[data-include] > * {
+    width: 100%;
+}
+
+/* ========== Shared Utilities for inner pages ========== */
+.grid-2 {
+    display: grid;
+    gap: var(--space-8);
+}
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.card {
+    background: var(--clr-white);
+    border: 1px solid #e8e4e4;
+    border-radius: var(--radius);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-soft);
+}
+
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+@media (min-width: 700px) {
+    .media-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.media-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Lightbox (gallery modal) */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    background: rgba(18,18,18,0.85);
+    z-index: 1000;
+}
+.lightbox-open {
+    display: grid;
+}
+.lightbox img {
+    width: auto;
+    height: auto;
+    max-width: 92vw;
+    max-height: 82vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.lightbox .controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-6);
+    z-index: 1; /* keep under the close button */
+}
+.lightbox button {
+    background: var(--clr-accent);
+    color: var(--clr-white);
+    border: 0;
+    border-radius: 999px;
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(130,34,34,0.4);
+    font-size: 1rem;
+}
+.lightbox .close {
+    position: absolute;
+    top: var(--space-6);
+    right: var(--space-6);
+    z-index: 2; /* ensure close is above overlay controls */
+}
+
+
+.visually-hidden {
+    position: absolute;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}

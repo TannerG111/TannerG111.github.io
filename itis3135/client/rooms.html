@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Project | Rooms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/default.css"/>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div data-include="components/header.html"></div>
+
+    <section class="site-hero" aria-label="Rooms hero">
+        <div class="container">
+            <h2 class="hero-title">Rooms & Amenities</h2>
+            <p>Comfortable spaces with the essentials you need for a great stay</p>
+        </div>
+    </section>
+
+    <main>
+        <!-- 1) Info at the top -->
+        <section>
+            <div class="container">
+                <h3 class="section-title">Room Information</h3>
+                <p class="section-lead">
+                    Weekly rates start at <strong>$350</strong> and go up to <strong>$400</strong> depending on room size.
+                    Every room includes the standard amenities listed below. Housekeeping is available upon request for a small fee.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2) Example rooms (one $350, one $400) -->
+        <section>
+            <div class="container">
+                <h3 class="section-title">Weekly Rates & Room Examples</h3>
+                <div class="grid-2">
+                    <div class="card room-card">
+                        <img src="images/350-bed.jpg" alt="Standard room with queen bed" style="width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+                        <h4 style="margin:0 0 .5rem 0;font-family: 'Playfair Display', serif;">Standard Rooms</h4>
+                        <p><strong>$350 / week</strong></p>
+                    </div>
+                    <div class="card room-card">
+                        <img src="images/400-2-bed.jpg" alt="Deluxe room with two beds" style="width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+                        <h4 style="margin:0 0 .5rem 0;font-family: 'Playfair Display', serif;">Deluxe Rooms</h4>
+                        <p>Includes the same amentities as the standard room, but with more space.</p>
+                        <p><strong>$400 / week</strong></p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a class="button-primary" href="gallery.html" aria-label="View photo gallery">View Gallery</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- 3) Amenities list -->
+        <section>
+            <div class="container">
+                <h3 class="section-title">Included Amenities</h3>
+                <div class="grid-2">
+                    <ul class="card">
+                        <li>Kitchenette with fridge & microwave</li>
+                        <li>Air conditioning</li>
+                        <li>Cable TV</li>
+                        <li>Bathroom with shower</li>
+                    </ul>
+                    <ul class="card">
+                        <li>Laundry Room for a small fee</li>
+                        <li>Parking included</li>
+                        <li>Housekeeping requestable for a small price</li>
+                        <li>Fast Maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+    <script src="./scripts/HTMLInclude.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Project | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/default.css"/>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div data-include="components/header.html"></div>
+
+    <section class="site-hero" role="banner" aria-label="Independence Lodge hero">
+        <div class="container">
+            <h2 class="hero-title">Independence Lodge</h2>
+            <p>Affordable lodging minutes from Uptown</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="surface-alt">
+            <div class="container">
+                <h3 class="section-title">Welcome</h3>
+                <p class="section-lead">
+                    Being only minutes from Uptown, Independence Lodge is the perfect place to 
+                    stay for your next visit to Charlotte. With rooms starting at $350 a week, 
+                    there are few better options for your next stay.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h3 class="section-title">Rooms</h3>
+                <div class="rooms-preview">
+                    <div class="rooms-preview-image">
+                        <img src="images/400-bed.jpg" alt="Spacious guest room at Independence Lodge">
+                    </div>
+                    <div class="rooms-preview-copy">
+                        <h3>Everything You Need</h3>
+                        <p>
+                            Our rooms have everything you need for a great stay.
+                            Bed, bath, kitchenette, cable, parking all 
+                            included in the price.
+                        </p>
+                        <a class="button-primary" href="rooms.html" aria-label="View rooms at Independence Lodge">More Info</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="surface-alt">
+            <div class="container contact-info">
+                <h3 class="section-title">Contact Information</h3>
+                <p><strong>Phone:</strong> (704) 605-4509</p>
+                <p><strong>Email:</strong> <a href="mailto:wdeese@yahoo.com">wdeese@yahoo.com</a></p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h3 class="section-title">Questions?</h3>
+                <div class="card">
+                    <form class="inquiry-form" action="#" method="post" aria-label="Contact form">
+                        <div class="field-row">
+                            <div>
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" autocomplete="name" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="phone">Phone</label>
+                                <input type="text" id="phone" name="phone" autocomplete="tel" placeholder="(555) 123-4567" pattern="^\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="example@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                        <button class="button-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+    <script src="./scripts/HTMLInclude.min.js"></script>
+    <script src="./scripts/contact.js"></script>
+</body>
+</html>
