@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Find any phone input(s) on the page; works for home and contact pages
+    // phone inputs
     const phoneInputs = Array.from(document.querySelectorAll('input[name="phone"]'));
 
     function formatPhone(value) {
-        // Strip all non-digits and cap to 10 to avoid spillover while typing
+        // strip all non-digits and cap to 10
         const digits = value.replace(/\D/g, "").slice(0, 10);
         const len = digits.length;
         if (len === 0) return "";
@@ -13,44 +13,44 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     phoneInputs.forEach((input) => {
-        // Hint numeric keypad on supporting mobile browsers
+        // hint numeric keypad on supporting mobile browsers
         if (!input.getAttribute("inputmode")) input.setAttribute("inputmode", "numeric");
 
-        // Keep the formatted mask in sync during input/blur
+        // keep the formatted mask in sync during input/blur
         const handle = () => {
             input.value = formatPhone(input.value);
         };
         input.addEventListener("input", handle);
         input.addEventListener("blur", handle);
 
-        // Prevent non-digit keys; allow navigation and editing controls
+        // prevent non-digit keys and allow navigation and editing controls
         input.addEventListener("keydown", (e) => {
             const controlKeys = ["Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight", "Home", "End"];
             if (controlKeys.includes(e.key) || e.ctrlKey || e.metaKey) return;
             if (!/^\d$/.test(e.key)) e.preventDefault();
         });
 
-        // Sanitize pasted content (may contain spaces/dashes/letters)
+        // handle pasted values
         input.addEventListener("paste", (e) => {
             e.preventDefault();
             const text = (e.clipboardData || window.clipboardData).getData("text") || "";
             input.value = formatPhone(text);
         });
-        // Initialize if there is prefilled content
+        // initialize if there is prefilled content
         handle();
     });
 
-    // Page-specific: contact form validation and message feedback
+    // contact form validation and message feedback
     const form = document.getElementById("contactForm");
     const status = document.getElementById("formStatus");
     if (form && status) {
         form.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            // Extract digits only; UI mask does not affect validation
+            // extract digits only and does not affect validation
             const digits = (form.phone.value || "").replace(/\D/g, "");
             const email = (form.email.value || "").trim();
-            // Basic email format check: something@something.tld
+            // basic email format check
             const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
             if (digits.length !== 10) {
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Simulated success path (no backend hooked up)
+            // simulated success path
             status.textContent = "Thanks! Your message has been received.";
             status.style.color = "#206a20";
             form.reset();

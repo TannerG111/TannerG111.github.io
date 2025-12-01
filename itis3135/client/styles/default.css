@@ -222,7 +222,6 @@ section {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    cursor: pointer;
 }
 
 /* Optional subheadings inside room copy can inherit defaults */
@@ -237,7 +236,7 @@ section {
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 6px 18px rgba(130,34,34,0.35);
-    
+    cursor: pointer;
 }
 
 .button-primary:hover {
@@ -316,12 +315,12 @@ footer .container {
 }
 
 /* ========== Shared Utilities for inner pages ========== */
-.grid-2 {
+.container-2 {
     display: grid;
     gap: var(--space-8);
 }
 @media (min-width: 768px) {
-    .grid-2 {
+    .container-2 {
         grid-template-columns: 1fr 1fr;
         align-items: start;
     }
@@ -336,17 +335,17 @@ footer .container {
 }
 
 
-.media-grid {
+.media-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4);
 }
 @media (min-width: 700px) {
-    .media-grid {
+    .media-container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-.media-grid img {
+.media-container img {
     width: 100%;
     height: 220px;
     object-fit: cover;
