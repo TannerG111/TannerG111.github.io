@@ -17,7 +17,7 @@ function initGalleryLightbox() {
         // always read from DOM so ordering changes are reflected
         imgs = Array.from(grid.querySelectorAll("img"));
     }
-
+    // opens the lightbox and displays the selected image
     function open(i) {
         refreshIndex();
         index = i;
@@ -27,10 +27,12 @@ function initGalleryLightbox() {
         lightbox.classList.add("lightbox-open");
         lightbox.setAttribute("aria-hidden", "false");
     }
+    // closes the lightbox
     function close() {
         lightbox.classList.remove("lightbox-open");
         lightbox.setAttribute("aria-hidden", "true");
     }
+    // moves to the next or previous image
     function move(delta) {
         refreshIndex();
         index = (index + delta + imgs.length) % imgs.length;
@@ -39,7 +41,7 @@ function initGalleryLightbox() {
         if (count) count.textContent = (index + 1) + " of " + imgs.length;
     }
 
-    // delegate click from grid to open the clicked image
+    // opens clicked image
     grid.addEventListener("click", (e) => {
         const img = e.target.closest("img");
         if (!img || !grid.contains(img)) return;
@@ -48,24 +50,24 @@ function initGalleryLightbox() {
         if (i >= 0) open(i);
     });
 
-    // control bindings
+    // logic for next and previous buttons
     if (prev) prev.addEventListener("click", () => move(-1));
     if (next) next.addEventListener("click", () => move(1));
     if (closeBtn) closeBtn.addEventListener("click", close);
 
-    // click outside the image closes the overlay
+    // click outside the image closes the lightbox
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) close();
     });
 
-    // keyboard interactions
+    // keyboard interactions for next and previous buttons and escape key
     document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("lightbox-open")) return;
         if (e.key === "Escape") close();
         if (e.key === "ArrowLeft") move(-1);
         if (e.key === "ArrowRight") move(1);
     });
-
+    // prevents the lightbox from being opened multiple times
     lightbox.dataset.bound = "true";
 }
 
